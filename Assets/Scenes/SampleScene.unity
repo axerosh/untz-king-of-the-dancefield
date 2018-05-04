@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 1037666725}
   - component: {fileID: 1037666728}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,3 +398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96257b07b10ef41479ae3bd1e50df6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputNames:
+  - p1_0
+  - p1_1
+  - p1_2
+  - p1_3
