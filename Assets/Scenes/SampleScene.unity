@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 1037666727}
   - component: {fileID: 1037666726}
   - component: {fileID: 1037666725}
+  - component: {fileID: 1037666728}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -344,3 +345,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037666728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037666724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96257b07b10ef41479ae3bd1e50df6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
