@@ -6,12 +6,16 @@ public interface DanceCard
     Direction direction
     {
         get;
-        set;
     }
 
+    //Relative points from the player to apply damage to 
     Point[] damagePoints
     {
         get;
-        set;
+    }
+
+    float damage
+    {
+        get;
     }
 }
