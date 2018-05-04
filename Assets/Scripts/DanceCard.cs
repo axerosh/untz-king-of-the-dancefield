@@ -10,8 +10,8 @@ public interface DanceCard
     }
 
     Point[] damagePoints
-        {
-            get;
-            set;
-        }
+    {
+        get;
+        set;
+    }
 }
