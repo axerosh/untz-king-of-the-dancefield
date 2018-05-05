@@ -62,6 +62,7 @@ public class GameMaster : MonoBehaviour {
     {
         DanceCard[] cards = new DanceCard[this.players.Length];
 
+        // Move
         for (int i = 0; i < this.players.Length; ++i)
         {
             if (this.playerQs[i].Count > 0)
@@ -69,6 +70,49 @@ public class GameMaster : MonoBehaviour {
                 cards[i] = this.playerQs[i].Dequeue();
 
                 players[i].move(cards[i].movePoint.x, cards[i].movePoint.y);
+            }
+        }
+
+        // Handle collisions
+        for (int i = 0; i < this.players.Length; ++i)
+        {
+            for (int j = 0; j < this.players.Length; ++j)
+            {
+                if ((players[i].x == players[j].x) && (players[i].y == players[j].y))
+                {
+                    if (cards[i] != null)
+                    {
+                        players[i].move(-cards[i].movePoint.x, -cards[i].movePoint.y);
+                    }
+
+                    if (cards[j] != null)
+                    {
+                        players[j].move(-cards[j].movePoint.x, -cards[j].movePoint.y);
+                    }
+                }
+            }
+        }
+
+        //Attack
+        for (int i = 0; i < this.players.Length; ++i)
+        {
+            DanceCard curCard = cards[i];
+
+            if (curCard != null)
+            {
+                for (int j = 0; j < curCard.damagePoints.Length; ++j)
+                {
+                    int dmgX = players[i].x + curCard.damagePoints[j].x;
+                    int dmgY = players[i].y + curCard.damagePoints[j].y;
+
+                    for (int k = 0; k < this.players.Length; ++k)
+                    {
+                        if ((players[k].x == dmgX) && (players[k].y == dmgY))
+                        {
+                            players[k].damage((int)curCard.damage);
+                        }
+                    }
+                }
             }
         }
     }
