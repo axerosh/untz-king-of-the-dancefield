@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour {
 
+    public int SELECT_TICKS = 10;
+
     public PlayerController[] players = new PlayerController[1];
     enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END, GENERATE_CARDS };
+
+    public Text uiText;
 
     GameState gameState;
     float accumulatedTimeSinceUpdate;
@@ -16,6 +21,8 @@ public class GameMaster : MonoBehaviour {
 
     private int maxMoves = 2;
     private Queue<DanceCard>[] playerQs;
+
+    private int curTicks;
 
     public void selectCard(int cardI, int playerI)
     {
@@ -77,8 +84,15 @@ public class GameMaster : MonoBehaviour {
                     generateNewCards();
                     updateCardSprites();
                     gameState = GameState.PICKING_CARD;
+                    curTicks = SELECT_TICKS;
                     break;
-                case GameState.PICKING_CARD:                   
+                case GameState.PICKING_CARD:
+                    this.curTicks -= 1;
+
+                    if (this.curTicks <= 0)
+                    {
+                        this.gameState = GameState.ACTING_OUT_MOVES;
+                    }
                     break;
                 case GameState.ACTING_OUT_MOVES:
                     break;
@@ -102,7 +116,6 @@ public class GameMaster : MonoBehaviour {
             }
         }
     }
-
 
     void generateNewCards()
     {
