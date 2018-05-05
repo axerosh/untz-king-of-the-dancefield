@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: f09e6da062005134fbf48919b3d9e5dc
+guid: 2adfd7e252af5384e9cabc38cda0b47d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: attack_left_0
-    21300002: attack_left_1
-    21300004: attack_left_2
-    21300006: attack_left_3
+    21300000: Piruett_0
+    21300002: Piruett_1
+    21300004: Piruett_2
+    21300006: Piruett_3
+    21300008: Piruett_4
+    21300010: Piruett_5
+    21300012: Piruett_6
+    21300014: Piruett_7
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -33,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -108,81 +112,161 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: attack_left_0
+      name: Piruett_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 34
-        width: 181
-        height: 336
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 147
+        y: 142
+        width: 143
+        height: 474
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1074e5f28ddc3d94db32333a190826fa
+      spriteID: c7066c9be972b9444b9fee32fc244382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_left_1
+      name: Piruett_1
       rect:
         serializedVersion: 2
-        x: 383
-        y: 35
-        width: 158
-        height: 311
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b66b3e3f890e2a42873c3c857779ca4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack_left_2
-      rect:
-        serializedVersion: 2
-        x: 650
-        y: 29
+        x: 441
+        y: 137
         width: 180
-        height: 335
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        height: 470
+      alignment: 9
+      pivot: {x: 0.32, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46bed56621fc7d243ab9dc06a4f81a47
+      spriteID: c3ebb9268814fcc4aa21cb31986fa9d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_left_3
+      name: Piruett_2
       rect:
         serializedVersion: 2
-        x: 907
-        y: 28
-        width: 186
-        height: 326
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 713
+        y: 148
+        width: 220
+        height: 459
+      alignment: 9
+      pivot: {x: 0.25, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47b2b1d3c91e72e4b88ecd1bde947dd8
+      spriteID: 30d6b0a6bdaee33419d88cd2fe47b2b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piruett_3
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 119
+        width: 195
+        height: 497
+      alignment: 9
+      pivot: {x: 0.29, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8874724c1e54bcb438b4a4c469db628d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piruett_4
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 125
+        width: 145
+        height: 491
+      alignment: 9
+      pivot: {x: 0.35, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c85f6b251b96347bd77d3dd3698941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piruett_5
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 116
+        width: 194
+        height: 498
+      alignment: 9
+      pivot: {x: 0.73, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cb8aab707c19d47bbf32295a318a31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piruett_6
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 124
+        width: 220
+        height: 458
+      alignment: 9
+      pivot: {x: 0.72, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8b8c0044f3a854c82bcd6245828ca1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piruett_7
+      rect:
+        serializedVersion: 2
+        x: 2218
+        y: 114
+        width: 181
+        height: 469
+      alignment: 9
+      pivot: {x: 0.69, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd2b7c48c78dc247bab0e95ef0ad55d
       vertices: []
       indices: 
       edges: []
@@ -190,7 +274,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0945af89f59753f409936fb2a66ee70a
+    spriteID: b4b39a864a97c194988b0f955b263d2f
     vertices: []
     indices: 
     edges: []

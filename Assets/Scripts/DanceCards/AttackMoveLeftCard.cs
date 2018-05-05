@@ -10,6 +10,13 @@
             }
         }
 
+        public DanceAnim anim
+        {
+            get
+            {
+                return DanceAnim.ATTACK_MOVE_LEFT;
+            }
+        }
 
         Point[] DanceCard.damagePoints
         {

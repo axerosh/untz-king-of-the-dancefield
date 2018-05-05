@@ -10,6 +10,13 @@
             }
         }
 
+        public DanceAnim anim
+        {
+            get
+            {
+                return DanceAnim.SPIN;
+            }
+        }
 
         Point[] DanceCard.damagePoints
         {
