@@ -8,18 +8,15 @@ public class GameMaster : MonoBehaviour {
     enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END, GENERATE_CARDS };
 
     GameState gameState;
-    float time;
-    float deltaTime;
     float accumulatedTimeSinceUpdate;
     float TICK_TIME = 0.8f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
     Random rnd;
 
-    public int playerC = 2;
     private int maxMoves = 2;
     private Queue<DanceCard>[] playerQs;
 
-    void selectCard(int cardI, int playerI)
+    public void selectCard(int cardI, int playerI)
     {
         if(this.gameState != GameState.PICKING_CARD)
         {
@@ -38,26 +35,37 @@ public class GameMaster : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gameState = GameState.GENERATE_CARDS;
-        time = Time.time;
-        deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
 
-        playerQs = new Queue<DanceCard>[playerC];
-        for (int i = 0; i < playerC; i++)
+        playerQs = new Queue<DanceCard>[this.players.Length];
+        for (int i = 0; i < this.players.Length; i++)
         {
             playerQs[i] = new Queue<DanceCard>();
         }
+
+        updatePlateColors();
     }
-	
+
+    void executeCard()
+    {
+        DanceCard[] cards = new DanceCard[this.players.Length];
+
+        for(int i = 0; i < this.players.Length; ++i)
+        {
+            cards[i] = this.playerQs[i].Dequeue();
+
+            players[i].move(0,0); //TODO
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
-        deltaTime = Time.time - time;
-        time = Time.time;
-        accumulatedTimeSinceUpdate += deltaTime;
+        
+        accumulatedTimeSinceUpdate += Time.deltaTime;
 
         // New tick
-        if(accumulatedTimeSinceUpdate > TICK_TIME)
+        if (accumulatedTimeSinceUpdate > TICK_TIME)
         {
             accumulatedTimeSinceUpdate = 0;
             switch (gameState)
@@ -77,17 +85,21 @@ public class GameMaster : MonoBehaviour {
 
             }
 
-            // Change color of plates
-            foreach (Transform row in transform)
-            {
-                foreach (Transform plate in row)
-                {
-                    PlateChangeColor colorChanger = (PlateChangeColor)plate.gameObject.GetComponent(typeof(PlateChangeColor));
-                    colorChanger.ChangeToRandomColor();
-                }
-            }
+            updatePlateColors();
         }
 	}
+
+    void updatePlateColors()
+    {
+        foreach (Transform row in transform)
+        {
+            foreach (Transform plate in row)
+            {
+                PlateChangeColor colorChanger = (PlateChangeColor)plate.gameObject.GetComponent(typeof(PlateChangeColor));
+                colorChanger.ChangeToRandomColor();
+            }
+        }
+    }
 
 
     void generateNewCards()
