@@ -104,12 +104,10 @@ public class PlayerController : MonoBehaviour {
 
         if (red)
         {
-            Debug.Log("make red");
             rend.color = Color.red;
         }
         else
         {
-            Debug.Log("make not red");
             rend.color = Color.white;
         }
     }
