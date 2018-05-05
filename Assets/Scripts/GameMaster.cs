@@ -14,7 +14,7 @@ public class GameMaster : MonoBehaviour {
 
     public CardController[] playerOnePickedCardIndicator = new CardController[2];
     public CardController[] playerTwoPickedCardIndicator = new CardController[2];
-
+    public JukeboxController jukebox = new JukeboxController();
 
     GameState gameState;
     float accumulatedTimeSinceUpdate;
@@ -214,6 +214,7 @@ public class GameMaster : MonoBehaviour {
                 case GameState.STARTING_GAME:
                     break;
                 case GameState.GENERATE_CARDS:
+                    jukebox.changeTrack();
                     generateNewCards();
                     updateCardSprites();
                     gameState = GameState.PICKING_CARD;

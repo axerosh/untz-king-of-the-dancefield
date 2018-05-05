@@ -907,15 +907,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4059453848832932, guid: bb1105d60a284894791ba49909ac6058, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4059453848832932, guid: bb1105d60a284894791ba49909ac6058, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4059453848832932, guid: bb1105d60a284894791ba49909ac6058, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4059453848832932, guid: bb1105d60a284894791ba49909ac6058, type: 2}
       propertyPath: m_LocalRotation.w
@@ -925,7 +925,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114037554382019892, guid: bb1105d60a284894791ba49909ac6058, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bb1105d60a284894791ba49909ac6058, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1132225606
@@ -1961,6 +1962,7 @@ MonoBehaviour:
   playerTwoPickedCardIndicator:
   - {fileID: 270998766}
   - {fileID: 325177313}
+  jukebox: {fileID: 2072292169}
   cardControllers:
   - {fileID: 68339813}
   - {fileID: 1014095686}
@@ -1986,3 +1988,24 @@ MonoBehaviour:
   - {fileID: 1045853313}
   - {fileID: 1943817476}
   - {fileID: 1194921859}
+--- !u!1 &2072292168 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1254294512578646, guid: bb1105d60a284894791ba49909ac6058,
+    type: 2}
+  m_PrefabInternal: {fileID: 1087069924}
+--- !u!114 &2072292169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072292168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35ca126b1c480f4d9ea71882b5d9ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracks:
+  - {fileID: 8300000, guid: b2c0eb5bc2755d2438d5cb49d6d4b442, type: 3}
+  - {fileID: 8300000, guid: a564b2ae9e60b2744b0c53b1e68bfd86, type: 3}
+  - {fileID: 8300000, guid: 8e12cd466409d614bb8dac8befe45031, type: 3}
+  - {fileID: 8300000, guid: 2f1938e1f34ba484189c1ad67b7ed165, type: 3}
