@@ -1,7 +1,7 @@
 ﻿using Directions;
 using PointClass;
 
-namespace DanceCards
+namespace UnityEngine
 {
     public class MoveUpCard : DanceCard
     {
