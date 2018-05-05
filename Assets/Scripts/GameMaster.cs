@@ -14,12 +14,11 @@ public class GameMaster : MonoBehaviour {
     int UPDATES_PER_SECOND = 60;
     DanceCard [] cardsToChoose = new DanceCard [6];
     Random rnd;
-
-    public int playerC = 2;
+    
     private int maxMoves = 2;
     private Queue<DanceCard>[] playerQs;
 
-    void selectCard(int cardI, int playerI)
+    public void selectCard(int cardI, int playerI)
     {
         if(this.gameState != GameState.PICKING_CARD)
         {
@@ -43,15 +42,27 @@ public class GameMaster : MonoBehaviour {
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
 
-        playerQs = new Queue<DanceCard>[playerC];
-        for (int i = 0; i < playerC; i++)
+        playerQs = new Queue<DanceCard>[this.players.Length];
+        for (int i = 0; i < this.players.Length; i++)
         {
             playerQs[i] = new Queue<DanceCard>();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void executeCard()
+    {
+        DanceCard[] cards = new DanceCard[this.players.Length];
+
+        for(int i = 0; i < this.players.Length; ++i)
+        {
+            cards[i] = this.playerQs[i].Dequeue();
+
+            players[i].move(0,0); //TODO
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         deltaTime = Time.time - time;
         time = Time.time;
         accumulatedTimeSinceUpdate += deltaTime;

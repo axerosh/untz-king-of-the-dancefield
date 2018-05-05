@@ -10,7 +10,16 @@ public class StageScript : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+    public Vector3 getWorldCoords(int x, int y)
+    {
+        GameObject row = this.rows[y];
+        GameObject tile = row.GetComponent<RowScript>().plates[x];
+
+        Vector3 pos = tile.transform.position;
+        return pos;
+    }
+
 	// Update is called once per frame
 	void Update () {
 		
