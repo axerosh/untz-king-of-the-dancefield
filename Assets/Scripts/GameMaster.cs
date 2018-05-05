@@ -23,7 +23,9 @@ public class GameMaster : MonoBehaviour {
     public CardController[] cardControllers = new CardController[6];
     Random rnd;
 
-    public int ticksPerMove = 5;
+    public int ticksPerMove = 2;
+    public int halfMoveTicks = 1;
+
     private int curMoves;
 
     private int maxMoves = 2;
@@ -126,6 +128,11 @@ public class GameMaster : MonoBehaviour {
                 // Set animation
                 players[i].setAnimation(cards[i].anim);
             }
+            else
+            {
+                // If no card go back to idle
+                players[i].setAnimation(DanceAnim.IDLE);
+            }
         }
 
         this.updateSelected();
@@ -166,6 +173,7 @@ public class GameMaster : MonoBehaviour {
                     {
                         if ((players[k].x == dmgX) && (players[k].y == dmgY))
                         {
+                            players[k].setRed(true);
                             players[k].damage((int)curCard.damage);
                         }
                     }
@@ -215,6 +223,16 @@ public class GameMaster : MonoBehaviour {
                 case GameState.ACTING_OUT_MOVES:
                     this.curTicks -= 1;
 
+                    // Sort of inbetween two moves
+                    if (this.curTicks == (ticksPerMove-halfMoveTicks))
+                    {
+                        // Reset everybodys color
+                        for(int i = 0; i < this.players.Length; ++i)
+                        {
+                            this.players[i].setRed(false);
+                        }
+                    }
+
                     if (this.curTicks <= 0)
                     {
                         this.curMoves -= 1;
@@ -235,6 +253,7 @@ public class GameMaster : MonoBehaviour {
                         {
                             //Execute 
                             executeCard();
+                            this.curTicks = ticksPerMove;
                         }
                     }
                     break;

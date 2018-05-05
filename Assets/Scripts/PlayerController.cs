@@ -97,4 +97,20 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
+    
+    public void setRed(bool red)
+    {
+        SpriteRenderer rend =  this.playerAnim.gameObject.GetComponent<SpriteRenderer>();
+
+        if (red)
+        {
+            Debug.Log("make red");
+            rend.color = Color.red;
+        }
+        else
+        {
+            Debug.Log("make not red");
+            rend.color = Color.white;
+        }
+    }
 }
