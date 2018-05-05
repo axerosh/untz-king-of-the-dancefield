@@ -6,13 +6,12 @@ namespace UnityEngine
     public class MoveLeftCard : DanceCard
     {
 
-        public Direction direction
+        public Point movePoint
         {
             get
             {
-                return Direction.LEFT;
+                return new Point(-1, 0);
             }
-
         }
 
         Point[] DanceCard.damagePoints

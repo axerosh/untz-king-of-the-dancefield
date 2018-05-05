@@ -11,6 +11,7 @@ public class GameMaster : MonoBehaviour {
     float accumulatedTimeSinceUpdate;
     float TICK_TIME = 0.8f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
+    public CardController[] cardControllers = new CardController[1];
     Random rnd;
 
     private int maxMoves = 2;
@@ -51,16 +52,16 @@ public class GameMaster : MonoBehaviour {
     {
         DanceCard[] cards = new DanceCard[this.players.Length];
 
-        for(int i = 0; i < this.players.Length; ++i)
+        for (int i = 0; i < this.players.Length; ++i)
         {
             cards[i] = this.playerQs[i].Dequeue();
 
-            players[i].move(0,0); //TODO
+            players[i].move(cards[i].movePoint.x, cards[i].movePoint.y);
         }
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         
         accumulatedTimeSinceUpdate += Time.deltaTime;
 
@@ -84,7 +85,7 @@ public class GameMaster : MonoBehaviour {
                     break;
 
             }
-
+            cardControllers[0].setDanceCard(cardsToChoose[0]);
             updatePlateColors();
         }
 	}

@@ -1,4 +1,10 @@
 ﻿namespace UnityEngine
 {
-    public enum Direction { UP, LEFT, DOWN, RIGHT, STAY };
+    public enum Direction {
+        UP,
+        LEFT,
+        DOWN,
+        RIGHT,
+        STAY
+    };
 }

@@ -4,7 +4,7 @@ namespace UnityEngine
 {
     public interface DanceCard
     {
-        Direction direction
+        Point movePoint
         {
             get;
         }
