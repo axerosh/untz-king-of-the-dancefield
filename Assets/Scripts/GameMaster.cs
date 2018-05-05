@@ -37,12 +37,9 @@ public class GameMaster : MonoBehaviour {
         Queue<DanceCard> curQ = this.playerQs[playerI];
         
         // Can not select same card two times
-        if ((curQ.Count > 0) && 
-            (curQ.Peek() != cardsToChoose[cardI]) 
+        if (curQ.Contains(cardsToChoose[cardI])
             &&
-            (curQ.Count == maxMoves)
-            &&
-            curQ.Contains(cardsToChoose[cardI]) 
+            !((curQ.Count == maxMoves) && (curQ.Peek() == cardsToChoose[cardI]))
             )
         {
             return;
