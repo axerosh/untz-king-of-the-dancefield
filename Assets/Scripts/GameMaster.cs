@@ -18,7 +18,7 @@ public class GameMaster : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameState = GameState.STARTING_GAME;
+        gameState = GameState.GENERATE_CARDS;
         time = Time.time;
         deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
@@ -40,8 +40,10 @@ public class GameMaster : MonoBehaviour {
                 case GameState.STARTING_GAME:
                     break;
                 case GameState.GENERATE_CARDS:
-                    
-                case GameState.PICKING_CARD:
+                    generateNewCards();
+                    gameState = GameState.PICKING_CARD;
+                    break;
+                case GameState.PICKING_CARD:                   
                     break;
                 case GameState.ACTING_OUT_MOVES:
                     break;
@@ -57,19 +59,27 @@ public class GameMaster : MonoBehaviour {
     {
         for(int i = 0; i < cardsToChoose.Length; i++)
         {
-            float number = Random.Range(0, 1);
+            float number = Random.Range(0, 100);
 
-            if(number < 0.30f)
+            if(number < 30)
             {
-                
+                cardsToChoose[i] = new MoveLeftCard();
             }
-            else if(number < 0.60f)
+            else if(number < 60)
             {
-
+                cardsToChoose[i] = new MoveRightCard();
             }
-            else if(number < 0.70f)
+            else if(number < 70)
             {
-
+                cardsToChoose[i] = new MoveUpCard();
+            }
+            else if(number < 80)
+            {
+                cardsToChoose[i] = new MoveDownCard();
+            }
+            else if (number <= 100)
+            {
+                cardsToChoose[i] = new MilkTheCowLeftCard();
             }
         }
     }
