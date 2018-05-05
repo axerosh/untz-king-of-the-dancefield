@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,12 +123,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4837000458782808, guid: d341c29fa4b6e2241b4c899d5c6deda5,
     type: 2}
   m_PrefabInternal: {fileID: 1388601582}
---- !u!114 &62209246 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114108153656363494, guid: d341c29fa4b6e2241b4c899d5c6deda5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1388601582}
-  m_Script: {fileID: 11500000, guid: c7778f8c043d06a4988728aeedfa3a60, type: 3}
 --- !u!114 &68339813 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114108153656363494, guid: d341c29fa4b6e2241b4c899d5c6deda5,
@@ -211,12 +205,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1042919479}
   m_Script: {fileID: 11500000, guid: c7778f8c043d06a4988728aeedfa3a60, type: 3}
---- !u!114 &270998766 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114108153656363494, guid: d341c29fa4b6e2241b4c899d5c6deda5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1231440099}
-  m_Script: {fileID: 11500000, guid: c7778f8c043d06a4988728aeedfa3a60, type: 3}
 --- !u!1 &282840810
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,12 +284,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &325177313 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114108153656363494, guid: d341c29fa4b6e2241b4c899d5c6deda5,
-    type: 2}
-  m_PrefabInternal: {fileID: 352158379}
-  m_Script: {fileID: 11500000, guid: c7778f8c043d06a4988728aeedfa3a60, type: 3}
 --- !u!1001 &352158379
 Prefab:
   m_ObjectHideFlags: 0
@@ -1070,6 +1052,147 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d341c29fa4b6e2241b4c899d5c6deda5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1220118951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1220118953}
+  - component: {fileID: 1220118952}
+  - component: {fileID: 1220118954}
+  m_Layer: 0
+  m_Name: Jukebox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1220118952
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220118951}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a564b2ae9e60b2744b0c53b1e68bfd86, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1220118953
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220118951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220118954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220118951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35ca126b1c480f4d9ea71882b5d9ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1223629135 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4837000458782808, guid: d341c29fa4b6e2241b4c899d5c6deda5,
@@ -1732,12 +1855,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4837000458782808, guid: d341c29fa4b6e2241b4c899d5c6deda5,
     type: 2}
   m_PrefabInternal: {fileID: 1286005507}
---- !u!114 &1910544274 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114108153656363494, guid: d341c29fa4b6e2241b4c899d5c6deda5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1286005507}
-  m_Script: {fileID: 11500000, guid: c7778f8c043d06a4988728aeedfa3a60, type: 3}
 --- !u!1 &1943817476 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1119733942369442, guid: bf75e36111f9dd64e941b3599cfc5aec,
@@ -1962,11 +2079,11 @@ MonoBehaviour:
   - {fileID: 949602616}
   uiText: {fileID: 1947293433}
   playerOnePickedCardIndicator:
-  - {fileID: 1910544274}
-  - {fileID: 62209246}
+  - {fileID: 0}
+  - {fileID: 0}
   playerTwoPickedCardIndicator:
-  - {fileID: 270998766}
-  - {fileID: 325177313}
+  - {fileID: 0}
+  - {fileID: 0}
   cardControllers:
   - {fileID: 68339813}
   - {fileID: 1014095686}
