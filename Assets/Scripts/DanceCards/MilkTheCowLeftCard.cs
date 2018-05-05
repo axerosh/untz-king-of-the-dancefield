@@ -5,15 +5,14 @@ namespace UnityEngine
 {
     public class MilkTheCowLeftCard : DanceCard
     {
-
-        public Direction direction
+        public Point movePoint
         {
             get
             {
-                return Direction.STAY;
+                return new Point(0,0 );
             }
-
         }
+
 
         Point[] DanceCard.damagePoints
         {

@@ -53,7 +53,7 @@ public class GameMaster : MonoBehaviour {
         {
             cards[i] = this.playerQs[i].Dequeue();
 
-            players[i].move(0,0); //TODO
+            players[i].move(cards[i].movePoint.x, cards[i].movePoint.y);
         }
     }
 

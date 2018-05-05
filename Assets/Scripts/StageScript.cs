@@ -11,6 +11,11 @@ public class StageScript : MonoBehaviour {
 		
 	}
 
+    public bool insideFloor(int x, int y)
+    {
+        return (y < rows.Length) && (x < rows[0].GetComponent<RowScript>().plates.Length);
+    }
+
     public Vector3 getWorldCoords(int x, int y)
     {
         GameObject row = this.rows[y];
