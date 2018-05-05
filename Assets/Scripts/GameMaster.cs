@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,17 +9,15 @@ public class GameMaster : MonoBehaviour {
 
     GameState gameState;
     float accumulatedTimeSinceUpdate;
-    int UPDATES_PER_SECOND = 60;
+    float TICK_TIME = 0.8f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
     public CardController[] cardControllers = new CardController[1];
     Random rnd;
-    GameObject stage;
 
-    public int playerC = 2;
     private int maxMoves = 2;
     private Queue<DanceCard>[] playerQs;
 
-    void selectCard(int cardI, int playerI)
+    public void selectCard(int cardI, int playerI)
     {
         if(this.gameState != GameState.PICKING_CARD)
         {
@@ -40,22 +38,35 @@ public class GameMaster : MonoBehaviour {
         gameState = GameState.GENERATE_CARDS;
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
-        //stage = GameObject.Find("Stage");
 
-        playerQs = new Queue<DanceCard>[playerC];
-        for (int i = 0; i < playerC; i++)
+        playerQs = new Queue<DanceCard>[this.players.Length];
+        for (int i = 0; i < this.players.Length; i++)
         {
             playerQs[i] = new Queue<DanceCard>();
         }
+
+        updatePlateColors();
     }
-	
+
+    void executeCard()
+    {
+        DanceCard[] cards = new DanceCard[this.players.Length];
+
+        for(int i = 0; i < this.players.Length; ++i)
+        {
+            cards[i] = this.playerQs[i].Dequeue();
+
+            players[i].move(0,0); //TODO
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
         
         accumulatedTimeSinceUpdate += Time.deltaTime;
 
         // New tick
-        if (accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
+        if (accumulatedTimeSinceUpdate > TICK_TIME)
         {
             accumulatedTimeSinceUpdate = 0;
             switch (gameState)
@@ -75,9 +86,22 @@ public class GameMaster : MonoBehaviour {
 
             }
 
-            // Change color of plates
+            updatePlateColors();
+            cardControllers[0].setDanceCard(cardsToChoose[0]);
         }
 	}
+
+    void updatePlateColors()
+    {
+        foreach (Transform row in transform)
+        {
+            foreach (Transform plate in row)
+            {
+                PlateChangeColor colorChanger = (PlateChangeColor)plate.gameObject.GetComponent(typeof(PlateChangeColor));
+                colorChanger.ChangeToRandomColor();
+            }
+        }
+    }
 
 
     void generateNewCards()
@@ -106,8 +130,6 @@ public class GameMaster : MonoBehaviour {
             {
                 cardsToChoose[i] = new MilkTheCowLeftCard();
             }
-
-            cardControllers[0].setDanceCard(cardsToChoose[0]);
         }
     }
 }

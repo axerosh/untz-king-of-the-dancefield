@@ -1,4 +1,4 @@
-﻿namespace PointClass
+﻿namespace UnityEngine
 {
     public class Point
     {

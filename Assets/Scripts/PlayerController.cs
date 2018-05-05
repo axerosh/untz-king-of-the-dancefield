@@ -6,11 +6,16 @@ public class PlayerController : MonoBehaviour {
 
     public float MOVE_SPEED = 3;
 
+    public GameMaster gm;
+    public StageScript stage;
+
     public string[] inputNames;
     public int startHealth = 10;
     private int health;
     public int x = 0;
     public int y = 0;
+
+    public int playerI = 0;
 
     private bool moving = false;
     private Vector3 destination;
@@ -24,13 +29,19 @@ public class PlayerController : MonoBehaviour {
      * x,y are coordinates on the board
      * worldX, worldY are coordinates in the world
      */
-    void moveTo(int x, int y, int worldX, int worldY)
+    public void move(int deltaX, int deltaY)
     {
+        int newX = this.x + deltaX;
+        int newY = this.y + deltaY;
+
         this.moving = true;
-        this.destination = new Vector3(worldX, worldY, this.transform.position.z);
+        this.destination = stage.getWorldCoords(newX, newY);
+        Debug.Log(destination);
+        this.x = newX;
+        this.y = newY;
     }
     
-    void damage(int amount)
+    public void damage(int amount)
     {
         this.health -= amount;
 
@@ -48,7 +59,11 @@ public class PlayerController : MonoBehaviour {
 
     void selectCard(int i)
     {
-        
+        gm.selectCard(i, playerI);
+        if (!moving)
+        {
+            this.move(1, 0);
+        }
     }
 
 	// Update is called once per frame
