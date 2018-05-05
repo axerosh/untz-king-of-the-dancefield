@@ -1226,7 +1226,7 @@ MonoBehaviour:
   player1HealthText: {fileID: 1230578845}
   player2HealthText: {fileID: 993878905}
   player1Controller: {fileID: 1037666728}
-  player2Controller: {fileID: 0}
+  player2Controller: {fileID: 949602616}
 --- !u!4 &1331635522 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4837000458782808, guid: d341c29fa4b6e2241b4c899d5c6deda5,
