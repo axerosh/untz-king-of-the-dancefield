@@ -8,12 +8,11 @@ public class GameMaster : MonoBehaviour {
     enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END, GENERATE_CARDS };
 
     GameState gameState;
-    float time;
-    float deltaTime;
     float accumulatedTimeSinceUpdate;
     int UPDATES_PER_SECOND = 60;
     DanceCard [] cardsToChoose = new DanceCard [6];
     Random rnd;
+    GameObject stage;
 
     public int playerC = 2;
     private int maxMoves = 2;
@@ -38,10 +37,9 @@ public class GameMaster : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gameState = GameState.GENERATE_CARDS;
-        time = Time.time;
-        deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
+        //stage = GameObject.Find("Stage");
 
         playerQs = new Queue<DanceCard>[playerC];
         for (int i = 0; i < playerC; i++)
@@ -52,13 +50,13 @@ public class GameMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        deltaTime = Time.time - time;
-        time = Time.time;
-        accumulatedTimeSinceUpdate += deltaTime;
+        
+        accumulatedTimeSinceUpdate += Time.deltaTime;
 
-        while(accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
+        // New tick
+        if (accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
         {
-            accumulatedTimeSinceUpdate -= 1/UPDATES_PER_SECOND;
+            accumulatedTimeSinceUpdate = 0;
             switch (gameState)
             {
                 case GameState.STARTING_GAME:
@@ -75,6 +73,8 @@ public class GameMaster : MonoBehaviour {
                     break;
 
             }
+
+            // Change color of plates
         }
 	}
 
@@ -108,3 +108,4 @@ public class GameMaster : MonoBehaviour {
         }
     }
 }
+
