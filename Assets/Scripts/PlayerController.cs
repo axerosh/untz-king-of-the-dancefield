@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 
     public string[] inputNames;
     public int startHealth = 10;
-    private int health;
+    public int health;
     public int x = 0;
     public int y = 0;
 
