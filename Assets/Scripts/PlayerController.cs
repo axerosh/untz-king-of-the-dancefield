@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     public GameMaster gm;
     public StageScript stage;
 
+    public Animator playerAnim;
+
     public string[] inputNames;
     public int startHealth = 10;
     public int health;
@@ -24,6 +26,11 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         this.health = startHealth;
 	}
+
+    public void setAnimation(DanceAnim anim)
+    {
+        playerAnim.SetInteger("anim", (int)anim);
+    }
 
     /*
      * x,y are coordinates on the board

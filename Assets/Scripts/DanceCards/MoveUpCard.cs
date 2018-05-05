@@ -14,6 +14,14 @@ namespace UnityEngine
             }
         }
 
+        public DanceAnim anim
+        {
+            get
+            {
+                return DanceAnim.IDLE;
+            }
+        }
+
         Point[] DanceCard.damagePoints
         {
             get

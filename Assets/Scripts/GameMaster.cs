@@ -79,7 +79,11 @@ public class GameMaster : MonoBehaviour {
             {
                 cards[i] = this.playerQs[i].Dequeue();
 
+                // actual move
                 players[i].move(cards[i].movePoint.x, cards[i].movePoint.y);
+
+                // Set animation
+                players[i].setAnimation(cards[i].anim);
             }
         }
 
@@ -171,6 +175,14 @@ public class GameMaster : MonoBehaviour {
 
                         if (this.curMoves <= 0)
                         {
+                            // Go back
+
+                            // Back to idle animation
+                            for (int i = 0; i < this.players.Length; ++i)
+                            {
+                                this.players[i].setAnimation(DanceAnim.IDLE);
+                            }
+
                             this.gameState = GameState.GENERATE_CARDS;
                         }
                     }
