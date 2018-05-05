@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         {
             this.moving = true;
             this.destination = stage.getWorldCoords(newX, newY);
-            
+
             this.x = newX;
             this.y = newY;
         }

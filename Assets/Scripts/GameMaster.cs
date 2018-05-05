@@ -19,6 +19,9 @@ public class GameMaster : MonoBehaviour {
     public CardController[] cardControllers = new CardController[6];
     Random rnd;
 
+    public int ticksPerMove = 4;
+    private int curMoves;
+
     private int maxMoves = 2;
     private Queue<DanceCard>[] playerQs;
 
@@ -36,7 +39,7 @@ public class GameMaster : MonoBehaviour {
 
         if (curQ.Count > maxMoves)
         {
-            curQ.Dequeue();
+            curQ.Dequeue();   
         }
     }
 
@@ -61,20 +64,24 @@ public class GameMaster : MonoBehaviour {
 
         for (int i = 0; i < this.players.Length; ++i)
         {
-            cards[i] = this.playerQs[i].Dequeue();
+            if (this.playerQs[i].Count > 0)
+            {
+                cards[i] = this.playerQs[i].Dequeue();
 
-            players[i].move(cards[i].movePoint.x, cards[i].movePoint.y);
+                players[i].move(cards[i].movePoint.x, cards[i].movePoint.y);
+            }
         }
     }
 
     // Update is called once per frame
     void Update () {
-        
         accumulatedTimeSinceUpdate += Time.deltaTime;
 
         // New tick
         if (accumulatedTimeSinceUpdate > TICK_TIME)
         {
+            Debug.Log(this.gameState);
+
             accumulatedTimeSinceUpdate = 0;
             switch (gameState)
             {
@@ -95,11 +102,24 @@ public class GameMaster : MonoBehaviour {
                     {
                         this.gameState = GameState.ACTING_OUT_MOVES;
 
-                        uiText.text = "";
+                        this.uiText.text = "";
+                        this.curTicks = 1;
+                        this.curMoves = 2;
                     }
                     break;
                 case GameState.ACTING_OUT_MOVES:
-                    executeCard();
+                    this.curTicks -= 1;
+
+                    if (this.curTicks <= 0)
+                    {
+                        executeCard();
+                        this.curMoves -= 1;
+
+                        if (this.curMoves <= 0)
+                        {
+                            this.gameState = GameState.GENERATE_CARDS;
+                        }
+                    }
                     break;
                 case GameState.GAME_END:
                     break;

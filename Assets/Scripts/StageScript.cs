@@ -13,7 +13,10 @@ public class StageScript : MonoBehaviour {
 
     public bool insideFloor(int x, int y)
     {
-        return (y < rows.Length) && (x < rows[0].GetComponent<RowScript>().plates.Length);
+        return (x >= 0) &&
+                (y >= 0) &&
+                (y < rows.Length) && 
+                (x < rows[0].GetComponent<RowScript>().plates.Length);
     }
 
     public Vector3 getWorldCoords(int x, int y)
