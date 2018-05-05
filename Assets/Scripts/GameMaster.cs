@@ -15,6 +15,7 @@ public class GameMaster : MonoBehaviour {
     int UPDATES_PER_SECOND = 60;
     DanceCard [] cardsToChoose = new DanceCard [6];
     Random rnd;
+    GameObject stage;
 
     // Use this for initialization
     void Start () {
@@ -23,7 +24,7 @@ public class GameMaster : MonoBehaviour {
         deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
-
+        stage = GameObject.Find("Stage");
     }
 	
 	// Update is called once per frame
@@ -32,6 +33,7 @@ public class GameMaster : MonoBehaviour {
         time = Time.time;
         accumulatedTimeSinceUpdate += deltaTime;
 
+        // New tick
         if(accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
         {
             accumulatedTimeSinceUpdate = 0;
@@ -51,6 +53,8 @@ public class GameMaster : MonoBehaviour {
                     break;
 
             }
+
+            // Change color of plates
         }
 	}
 
