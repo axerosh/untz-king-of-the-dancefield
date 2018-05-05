@@ -14,14 +14,17 @@ public class GameMaster : MonoBehaviour {
     float accumulatedTimeSinceUpdate;
     int UPDATES_PER_SECOND = 60;
     DanceCard [] cardsToChoose = new DanceCard [6];
+    Random rnd;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         gameState = GameState.STARTING_GAME;
         time = Time.time;
         deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
-	}
+        rnd = new Random();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,7 +39,8 @@ public class GameMaster : MonoBehaviour {
             {
                 case GameState.STARTING_GAME:
                     break;
-                
+                case GameState.GENERATE_CARDS:
+                    
                 case GameState.PICKING_CARD:
                     break;
                 case GameState.ACTING_OUT_MOVES:
@@ -47,4 +51,26 @@ public class GameMaster : MonoBehaviour {
             }
         }
 	}
+
+
+    void generateNewCards()
+    {
+        for(int i = 0; i < cardsToChoose.Length; i++)
+        {
+            float number = Random.Range(0, 1);
+
+            if(number < 0.30f)
+            {
+                
+            }
+            else if(number < 0.60f)
+            {
+
+            }
+            else if(number < 0.70f)
+            {
+
+            }
+        }
+    }
 }

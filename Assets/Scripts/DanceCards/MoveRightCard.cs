@@ -1,30 +1,34 @@
 ﻿using Directions;
 using PointClass;
 
-public class MoveRightCard : DanceCard {
-
-    public Direction direction
+namespace DanceCards
+{
+    public class MoveRightCard : DanceCard
     {
-        get
+
+        public Direction direction
         {
-            return Direction.RIGHT;
+            get
+            {
+                return Direction.RIGHT;
+            }
+
         }
 
-    }
-
-    Point[] DanceCard.damagePoints
-    {
-        get
+        Point[] DanceCard.damagePoints
         {
-            return new Point[0];
+            get
+            {
+                return new Point[0];
+            }
         }
-    }
 
-    float DanceCard.damage
-    {
-        get
+        float DanceCard.damage
         {
-            return 0;
+            get
+            {
+                return 0;
+            }
         }
     }
 }
