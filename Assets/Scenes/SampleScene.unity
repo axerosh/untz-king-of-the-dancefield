@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -479,8 +479,8 @@ MonoBehaviour:
   - p2_5
   startHealth: 10
   health: 0
-  x: 0
-  y: 0
+  x: 6
+  y: 1
   playerI: 1
 --- !u!4 &949602617
 Transform:
@@ -489,7 +489,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 949602615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -0.25, z: 0.5}
+  m_LocalPosition: {x: 2.5, y: -1, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1678429321}
@@ -728,7 +728,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037666724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45, y: 0.16, z: 0}
+  m_LocalPosition: {x: -0.45, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1657841824}
@@ -1323,8 +1323,8 @@ MonoBehaviour:
   - p1_5
   startHealth: 10
   health: 0
-  x: 0
-  y: 0
+  x: 1
+  y: 1
   playerI: 0
 --- !u!4 &1657841824
 Transform:
@@ -1333,7 +1333,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1657841822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -0.25, z: 0.5}
+  m_LocalPosition: {x: -2.5, y: -1, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1037666727}
@@ -1365,7 +1365,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1678429320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0.16, z: 0}
+  m_LocalPosition: {x: 0.46, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 949602617}
@@ -1676,9 +1676,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd5032a9b957c046a2efa9d032ce66f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SELECT_TICKS: 5
+  SELECT_TICKS: 10
   players:
   - {fileID: 1657841823}
+  - {fileID: 949602616}
   uiText: {fileID: 1947293433}
   cardControllers:
   - {fileID: 68339813}
