@@ -23,7 +23,7 @@ public class GameMaster : MonoBehaviour {
     public CardController[] cardControllers = new CardController[6];
     Random rnd;
 
-    public int ticksPerMove = 4;
+    public int ticksPerMove = 5;
     private int curMoves;
 
     private int maxMoves = 2;
@@ -208,8 +208,6 @@ public class GameMaster : MonoBehaviour {
         // New tick
         if (accumulatedTimeSinceUpdate > TICK_TIME)
         {
-            Debug.Log(this.gameState);
-
             accumulatedTimeSinceUpdate = 0;
             switch (gameState)
             {
@@ -236,7 +234,9 @@ public class GameMaster : MonoBehaviour {
 
                         this.uiText.text = "";
                         this.curTicks = 1;
-                        this.curMoves = 2;
+                        this.curMoves = maxMoves + 1;
+
+                        this.hideCardSprites();
                     }
                     break;
                 case GameState.ACTING_OUT_MOVES:
@@ -244,7 +244,6 @@ public class GameMaster : MonoBehaviour {
 
                     if (this.curTicks <= 0)
                     {
-                        executeCard();
                         this.curMoves -= 1;
 
                         if (this.curMoves <= 0)
@@ -258,6 +257,11 @@ public class GameMaster : MonoBehaviour {
                             }
 
                             this.gameState = GameState.GENERATE_CARDS;
+                        }
+                        else
+                        {
+                            //Execute 
+                            executeCard();
                         }
                     }
                     break;
@@ -332,6 +336,14 @@ public class GameMaster : MonoBehaviour {
             {
                 cardsToChoose[i] = new AttackAllCard();
             }
+        }
+    }
+
+    void hideCardSprites()
+    {
+        for (int i = 0; i < cardControllers.Length; i++)
+        {
+            cardControllers[i].setPicked(false);
         }
     }
 

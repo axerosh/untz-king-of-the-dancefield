@@ -23,7 +23,6 @@ public class CardController : MonoBehaviour {
 
     public void setDanceCard(DanceCard newDanceCard)
     {
-        //0. Up
         //1. Right
         //2. Left
         //3. Down
