@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DanceCards;
 
 public class GameMaster : MonoBehaviour {
 
     public PlayerController[] players = new PlayerController[1];
-    enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END };
+    enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END, GENERATE_CARDS };
 
     GameState gameState;
     float time;
     float deltaTime;
     float accumulatedTimeSinceUpdate;
     int UPDATES_PER_SECOND = 60;
+    DanceCard [] cardsToChoose = new DanceCard [6];
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +31,12 @@ public class GameMaster : MonoBehaviour {
 
         if(accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
         {
+            accumulatedTimeSinceUpdate = 0;
             switch (gameState)
             {
                 case GameState.STARTING_GAME:
                     break;
+                
                 case GameState.PICKING_CARD:
                     break;
                 case GameState.ACTING_OUT_MOVES:
