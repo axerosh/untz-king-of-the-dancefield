@@ -7,14 +7,13 @@ public class JukeboxController : MonoBehaviour {
     public AudioClip[] tracks = new AudioClip[4];
 
     AudioSource musicPlayer;
-    bool changeTrackNow = true;
-    float timePlayed;
-    float playTime;
+    bool changeTrackNow = false;
+    float timePlayed = 0.0f;
+    float playTime = 0.4f;
 
     // Use this for initialization
     void Start () {
         musicPlayer = transform.GetComponent<AudioSource>();
-        setRandomTrack();
     }
 	
 	// Update is called once per frame
