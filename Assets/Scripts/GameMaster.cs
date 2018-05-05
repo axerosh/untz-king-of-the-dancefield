@@ -16,7 +16,7 @@ public class GameMaster : MonoBehaviour {
     float accumulatedTimeSinceUpdate;
     float TICK_TIME = 0.8f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
-    public CardController[] cardControllers = new CardController[1];
+    public CardController[] cardControllers = new CardController[6];
     Random rnd;
 
     private int maxMoves = 2;
@@ -82,6 +82,7 @@ public class GameMaster : MonoBehaviour {
                     break;
                 case GameState.GENERATE_CARDS:
                     generateNewCards();
+                    updateCardSprites();
                     gameState = GameState.PICKING_CARD;
                     curTicks = SELECT_TICKS;
                     break;
@@ -99,7 +100,7 @@ public class GameMaster : MonoBehaviour {
                     break;
 
             }
-            cardControllers[0].setDanceCard(cardsToChoose[0]);
+            
             updatePlateColors();
         }
 	}
@@ -142,6 +143,14 @@ public class GameMaster : MonoBehaviour {
             {
                 cardsToChoose[i] = new MilkTheCowLeftCard();
             }
+        }
+    }
+
+    void updateCardSprites()
+    {
+        for(int i = 0; i < cardControllers.Length; i++)
+        {
+            cardControllers[i].setDanceCard(cardsToChoose[i]);
         }
     }
 }
