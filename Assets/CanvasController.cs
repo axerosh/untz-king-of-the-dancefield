@@ -18,7 +18,7 @@ public class CanvasController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         player1HealthText.text = "Player 1 Health\n" + player1Controller.health;
-        //TODO uncomment when player 2 is added
-        //player2HealthText.text = "Player 2 Health\n" + player2Controller.health;
+        
+        player2HealthText.text = "Player 2 Health\n" + player2Controller.health;
     }
 }
