@@ -11,6 +11,7 @@ public class GameMaster : MonoBehaviour {
     float accumulatedTimeSinceUpdate;
     int UPDATES_PER_SECOND = 60;
     DanceCard [] cardsToChoose = new DanceCard [6];
+    public CardController[] cardControllers = new CardController[1];
     Random rnd;
     GameObject stage;
 
@@ -105,6 +106,8 @@ public class GameMaster : MonoBehaviour {
             {
                 cardsToChoose[i] = new MilkTheCowLeftCard();
             }
+
+            cardControllers[0].setDanceCard(cardsToChoose[0]);
         }
     }
 }
