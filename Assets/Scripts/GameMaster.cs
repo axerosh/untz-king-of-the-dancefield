@@ -56,9 +56,9 @@ public class GameMaster : MonoBehaviour {
         time = Time.time;
         accumulatedTimeSinceUpdate += deltaTime;
 
-        if(accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
+        while(accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
         {
-            accumulatedTimeSinceUpdate = 0;
+            accumulatedTimeSinceUpdate -= 1/UPDATES_PER_SECOND;
             switch (gameState)
             {
                 case GameState.STARTING_GAME:
