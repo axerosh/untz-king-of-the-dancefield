@@ -34,11 +34,18 @@ public class PlayerController : MonoBehaviour {
         int newX = this.x + deltaX;
         int newY = this.y + deltaY;
 
-        this.moving = true;
-        this.destination = stage.getWorldCoords(newX, newY);
-        Debug.Log(destination);
-        this.x = newX;
-        this.y = newY;
+        if(stage.insideFloor(newX, newY))
+        {
+            this.moving = true;
+            this.destination = stage.getWorldCoords(newX, newY);
+            
+            this.x = newX;
+            this.y = newY;
+        }
+        else
+        {
+            this.die();
+        }
     }
     
     public void damage(int amount)
