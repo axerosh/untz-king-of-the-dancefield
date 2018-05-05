@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DanceCards;
+using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
