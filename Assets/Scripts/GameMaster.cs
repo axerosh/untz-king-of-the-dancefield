@@ -94,6 +94,7 @@ public class GameMaster : MonoBehaviour {
                     if (this.curTicks <= 0)
                     {
                         this.gameState = GameState.ACTING_OUT_MOVES;
+
                         uiText.text = "";
                     }
                     break;
