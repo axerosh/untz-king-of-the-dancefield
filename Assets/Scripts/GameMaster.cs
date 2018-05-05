@@ -9,7 +9,7 @@ public class GameMaster : MonoBehaviour {
 
     GameState gameState;
     float accumulatedTimeSinceUpdate;
-    int UPDATES_PER_SECOND = 60;
+    float TICK_TIME = 0.8f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
     Random rnd;
 
@@ -43,13 +43,15 @@ public class GameMaster : MonoBehaviour {
         {
             playerQs[i] = new Queue<DanceCard>();
         }
+
+        updatePlateColors();
     }
 
     void executeCard()
     {
         DanceCard[] cards = new DanceCard[this.players.Length];
 
-        for(int i = 0; i < this.players.Length; ++i)
+        for (int i = 0; i < this.players.Length; ++i)
         {
             cards[i] = this.playerQs[i].Dequeue();
 
@@ -57,13 +59,13 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         
         accumulatedTimeSinceUpdate += Time.deltaTime;
 
         // New tick
-        if (accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
+        if (accumulatedTimeSinceUpdate > TICK_TIME)
         {
             accumulatedTimeSinceUpdate = 0;
             switch (gameState)
@@ -83,9 +85,21 @@ public class GameMaster : MonoBehaviour {
 
             }
 
-            // Change color of plates
+            updatePlateColors();
         }
 	}
+
+    void updatePlateColors()
+    {
+        foreach (Transform row in transform)
+        {
+            foreach (Transform plate in row)
+            {
+                PlateChangeColor colorChanger = (PlateChangeColor)plate.gameObject.GetComponent(typeof(PlateChangeColor));
+                colorChanger.ChangeToRandomColor();
+            }
+        }
+    }
 
 
     void generateNewCards()
