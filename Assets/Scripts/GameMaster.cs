@@ -33,6 +33,8 @@ public class GameMaster : MonoBehaviour {
 
     private int curTicks;
 
+    private DanceCard[] lastCards;
+
     public void selectCard(int cardI, int playerI)
     {
         if(this.gameState != GameState.PICKING_CARD)
@@ -137,26 +139,6 @@ public class GameMaster : MonoBehaviour {
 
         this.updateSelected();
 
-        // Handle collisions
-        for (int i = 0; i < this.players.Length; ++i)
-        {
-            for (int j = 0; j < this.players.Length; ++j)
-            {
-                if ((i != j) && (players[i].x == players[j].x) && (players[i].y == players[j].y))
-                {
-                    if (cards[i] != null)
-                    {
-                        players[i].move(-cards[i].movePoint.x, -cards[i].movePoint.y);
-                    }
-
-                    if (cards[j] != null)
-                    {
-                        players[j].move(-cards[j].movePoint.x, -cards[j].movePoint.y);
-                    }
-                }
-            }
-        }
-
         //Attack
         for (int i = 0; i < this.players.Length; ++i)
         {
@@ -180,6 +162,8 @@ public class GameMaster : MonoBehaviour {
                 }
             }
         }
+
+        this.lastCards = cards;
     }
 
     // Update is called once per frame
@@ -231,6 +215,27 @@ public class GameMaster : MonoBehaviour {
                         for(int i = 0; i < this.players.Length; ++i)
                         {
                             this.players[i].setRed(false);
+                        }
+
+                        // Check collisions
+                        // Handle collisions
+                        for (int i = 0; i < this.players.Length; ++i)
+                        {
+                            for (int j = 0; j < this.players.Length; ++j)
+                            {
+                                if ((i != j) && (players[i].x == players[j].x) && (players[i].y == players[j].y))
+                                {
+                                    if (this.lastCards[i] != null)
+                                    {
+                                        players[i].move(-this.lastCards[i].movePoint.x, -this.lastCards[i].movePoint.y);
+                                    }
+
+                                    if (this.lastCards[j] != null)
+                                    {
+                                        players[j].move(-this.lastCards[j].movePoint.x, -this.lastCards[j].movePoint.y);
+                                    }
+                                }
+                            }
                         }
                     }
 
