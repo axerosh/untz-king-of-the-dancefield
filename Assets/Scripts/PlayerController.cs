@@ -67,10 +67,6 @@ public class PlayerController : MonoBehaviour {
     void selectCard(int i)
     {
         gm.selectCard(i, playerI);
-        if (!moving)
-        {
-            this.move(1, 0);
-        }
     }
 
 	// Update is called once per frame
