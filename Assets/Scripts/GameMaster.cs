@@ -43,7 +43,7 @@ public class GameMaster : MonoBehaviour {
         deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
-        stage = GameObject.Find("Stage");
+        //stage = GameObject.Find("Stage");
 
         playerQs = new Queue<DanceCard>[playerC];
         for (int i = 0; i < playerC; i++)
