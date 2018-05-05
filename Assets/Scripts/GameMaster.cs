@@ -85,16 +85,20 @@ public class GameMaster : MonoBehaviour {
                     updateCardSprites();
                     gameState = GameState.PICKING_CARD;
                     curTicks = SELECT_TICKS;
+                    uiText.text = this.curTicks.ToString();
                     break;
                 case GameState.PICKING_CARD:
                     this.curTicks -= 1;
+                    uiText.text = this.curTicks.ToString();
 
                     if (this.curTicks <= 0)
                     {
                         this.gameState = GameState.ACTING_OUT_MOVES;
+                        uiText.text = "";
                     }
                     break;
                 case GameState.ACTING_OUT_MOVES:
+                    executeCard();
                     break;
                 case GameState.GAME_END:
                     break;
