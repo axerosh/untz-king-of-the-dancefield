@@ -22,7 +22,7 @@
         {
             get
             {
-                return new Point[] { new Point(-1, 0) };
+                return new Point[] { new Point(1, 0) };
             }
         }
 

@@ -50,40 +50,13 @@ public class GameMaster : MonoBehaviour {
         }
 
         curQ.Enqueue(cardsToChoose[cardI]);
-        
-        if (playerI == 0)
-        {
-            if (curQ.Count == 1)
-            {
-                playerOnePickedCardIndicator[0].setPicked(true);
-                playerOnePickedCardIndicator[1].setPicked(false);
-            }
-            else if (curQ.Count == 2)
-            {
-                playerOnePickedCardIndicator[0].setPicked(true);
-                playerOnePickedCardIndicator[1].setPicked(true);
-            }
-        }
-        else
-        {
-            if (curQ.Count == 1)
-            {
-                playerTwoPickedCardIndicator[0].setPicked(true);
-                playerTwoPickedCardIndicator[1].setPicked(false);
-            }
-            else if (curQ.Count == 2)
-            {
-                playerTwoPickedCardIndicator[0].setPicked(true);
-                playerTwoPickedCardIndicator[1].setPicked(true);
-            }
-        }
-
-        this.updateSelected();
 
         if (curQ.Count > maxMoves)
         {
             curQ.Dequeue();   
         }
+
+        this.updateSelected();
     }
 
     void updateSelected()
@@ -293,43 +266,35 @@ public class GameMaster : MonoBehaviour {
         {
             float number = Random.Range(0, 101);
 
-            if(number < 25)
+            if(number < 20)
             {
                 cardsToChoose[i] = new MoveLeftCard();
             }
-            else if(number < 50)
+            else if(number < 40)
             {
                 cardsToChoose[i] = new MoveRightCard();
             }
-            else if(number < 58)
+            else if(number < 50)
             {
                 cardsToChoose[i] = new MoveUpCard();
             }
-            else if(number < 65)
+            else if(number < 60)
             {
                 cardsToChoose[i] = new MoveDownCard();
             }
             else if (number < 70)
             {
-                cardsToChoose[i] = new AttackDownCard();
-            }
-            else if (number < 75)
-            {
-                cardsToChoose[i] = new AttackUpCard();
+                cardsToChoose[i] = new AttackLeftCard();
             }
             else if (number < 80)
             {
-                cardsToChoose[i] = new AttackLeftCard();
+                cardsToChoose[i] = new AttackRightCard();
             }
             else if (number < 85)
             {
-                cardsToChoose[i] = new AttackRightCard();
-            }
-            else if (number < 90)
-            {
                 cardsToChoose[i] = new AttackMoveLeftCard();
             }
-            else if (number < 95)
+            else if (number < 90)
             {
                 cardsToChoose[i] = new AttackMoveRightCard();
             }
