@@ -11,10 +11,9 @@ public class GameMaster : MonoBehaviour {
     float time;
     float deltaTime;
     float accumulatedTimeSinceUpdate;
-    int UPDATES_PER_SECOND = 60;
+    float TICK_TIME = 0.8f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
     Random rnd;
-    GameObject stage;
 
     public int playerC = 2;
     private int maxMoves = 2;
@@ -43,7 +42,6 @@ public class GameMaster : MonoBehaviour {
         deltaTime = 0;
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
-        //stage = GameObject.Find("Stage");
 
         playerQs = new Queue<DanceCard>[playerC];
         for (int i = 0; i < playerC; i++)
@@ -59,7 +57,7 @@ public class GameMaster : MonoBehaviour {
         accumulatedTimeSinceUpdate += deltaTime;
 
         // New tick
-        if(accumulatedTimeSinceUpdate > 1 / UPDATES_PER_SECOND)
+        if(accumulatedTimeSinceUpdate > TICK_TIME)
         {
             accumulatedTimeSinceUpdate = 0;
             switch (gameState)
@@ -80,6 +78,14 @@ public class GameMaster : MonoBehaviour {
             }
 
             // Change color of plates
+            foreach (Transform row in transform)
+            {
+                foreach (Transform plate in row)
+                {
+                    PlateChangeColor colorChanger = (PlateChangeColor)plate.gameObject.GetComponent(typeof(PlateChangeColor));
+                    colorChanger.ChangeToRandomColor();
+                }
+            }
         }
 	}
 
