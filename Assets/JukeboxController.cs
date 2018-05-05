@@ -18,8 +18,9 @@ public class JukeboxController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        playTime += Time.deltaTime;
+	void Update ()
+    {
+        timePlayed += Time.deltaTime;
         tryChangeTrack();
     }
 
@@ -40,6 +41,7 @@ public class JukeboxController : MonoBehaviour {
 
     private void setRandomTrack()
     {
+        changeTrackNow = false;
         int songIndex = Random.Range(0, tracks.Length);
         musicPlayer.clip = tracks[songIndex];
         timePlayed = 0.0f;
