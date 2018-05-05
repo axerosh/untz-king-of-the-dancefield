@@ -190,27 +190,51 @@ public class GameMaster : MonoBehaviour {
     {
         for(int i = 0; i < cardsToChoose.Length; i++)
         {
-            float number = Random.Range(0, 100);
+            float number = Random.Range(0, 101);
 
-            if(number < 30)
+            if(number < 25)
             {
                 cardsToChoose[i] = new MoveLeftCard();
             }
-            else if(number < 60)
+            else if(number < 50)
             {
                 cardsToChoose[i] = new MoveRightCard();
             }
-            else if(number < 70)
+            else if(number < 58)
             {
                 cardsToChoose[i] = new MoveUpCard();
             }
-            else if(number < 80)
+            else if(number < 65)
             {
                 cardsToChoose[i] = new MoveDownCard();
             }
+            else if (number < 70)
+            {
+                cardsToChoose[i] = new AttackDownCard();
+            }
+            else if (number < 75)
+            {
+                cardsToChoose[i] = new AttackUpCard();
+            }
+            else if (number < 80)
+            {
+                cardsToChoose[i] = new AttackLeftCard();
+            }
+            else if (number < 85)
+            {
+                cardsToChoose[i] = new AttackRightCard();
+            }
+            else if (number < 90)
+            {
+                cardsToChoose[i] = new AttackMoveLeftCard();
+            }
+            else if (number < 95)
+            {
+                cardsToChoose[i] = new AttackMoveRightCard();
+            }
             else if (number <= 100)
             {
-                cardsToChoose[i] = new MilkTheCowLeftCard();
+                cardsToChoose[i] = new AttackAllCard();
             }
         }
     }
