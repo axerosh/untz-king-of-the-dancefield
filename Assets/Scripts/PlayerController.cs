@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        for(int i = 0; i < 4; ++i)
+        for(int i = 0; i < inputNames.Length; ++i)
         {
             if (Input.GetButton(inputNames[i]))
             {

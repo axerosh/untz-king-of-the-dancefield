@@ -6,7 +6,10 @@ public class CardController : MonoBehaviour {
 
     public DanceCard danceCard;
     public Sprite[] sprites = new Sprite[1];
+    private bool picked = false;
 
+    public Sprite pickedSprite;
+    public Sprite defaultSprite;
 
 	// Use this for initialization
 	void Start () {
@@ -78,6 +81,20 @@ public class CardController : MonoBehaviour {
         else if (newDanceCard is AttackAllCard)
         {
             GetComponent<SpriteRenderer>().sprite = sprites[10];
+        }
+    }
+
+    public void setPicked(bool picked)
+    {
+        this.picked = picked;
+
+        if (picked)
+        {
+            GetComponent<SpriteRenderer>().sprite = pickedSprite;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = defaultSprite;
         }
     }
 }

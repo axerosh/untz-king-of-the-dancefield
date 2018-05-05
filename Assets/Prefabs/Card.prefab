@@ -64,6 +64,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e148f5a55dbe1a64ca19e1a2c405b92d, type: 3}
   - {fileID: 21300000, guid: deacca0c042e60f4387cbd06e1caba8c, type: 3}
   - {fileID: 21300000, guid: a3ea3c59887204c459519bccc5b05c3b, type: 3}
+  pickedSprite: {fileID: 21300000, guid: 7cdc8a90202ead54694d7907321fd911, type: 3}
+  defaultSprite: {fileID: 21300000, guid: 70f4511556c0524479b1afc94877a89c, type: 3}
 --- !u!212 &212339913097860062
 SpriteRenderer:
   m_ObjectHideFlags: 1
