@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -594,9 +594,8 @@ GameObject:
   - component: {fileID: 1037666727}
   - component: {fileID: 1037666726}
   - component: {fileID: 1037666725}
-  - component: {fileID: 1037666728}
   m_Layer: 0
-  m_Name: player1
+  m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,7 +656,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f09e6da062005134fbf48919b3d9e5dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.81, y: 3.36}
@@ -671,12 +670,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037666724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.67, y: 0, z: 1.37}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.45, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1657841824}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1037666728
 MonoBehaviour:
@@ -1149,7 +1148,7 @@ RectTransform:
   - {fileID: 1230578844}
   - {fileID: 993878904}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1228,6 +1227,59 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf75e36111f9dd64e941b3599cfc5aec, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1657841822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1657841824}
+  - component: {fileID: 1657841823}
+  m_Layer: 0
+  m_Name: player1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1657841823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657841822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96257b07b10ef41479ae3bd1e50df6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MOVE_SPEED: 3
+  gm: {fileID: 2064270336}
+  stage: {fileID: 2064270337}
+  inputNames:
+  - p1_0
+  - p1_1
+  - p1_2
+  - p1_3
+  startHealth: 10
+  x: 0
+  y: 0
+  playerI: 0
+--- !u!4 &1657841824
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657841822}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5, y: -0.25, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1037666727}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943817476 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1119733942369442, guid: bf75e36111f9dd64e941b3599cfc5aec,
@@ -1446,9 +1498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd5032a9b957c046a2efa9d032ce66f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SELECT_TICKS: 10
+  SELECT_TICKS: 5
   players:
-  - {fileID: 1037666728}
+  - {fileID: 1657841823}
   uiText: {fileID: 1947293433}
   cardControllers:
   - {fileID: 68339813}
@@ -1457,6 +1509,7 @@ MonoBehaviour:
   - {fileID: 1223629136}
   - {fileID: 993312281}
   - {fileID: 1331635523}
+  ticksPerMove: 4
 --- !u!114 &2064270337
 MonoBehaviour:
   m_ObjectHideFlags: 0
