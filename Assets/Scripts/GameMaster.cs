@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
@@ -17,6 +16,26 @@ public class GameMaster : MonoBehaviour {
     Random rnd;
     GameObject stage;
 
+    public int playerC = 2;
+    private int maxMoves = 2;
+    private Queue<DanceCard>[] playerQs;
+
+    void selectCard(int cardI, int playerI)
+    {
+        if(this.gameState != GameState.PICKING_CARD)
+        {
+            return;
+        }
+
+        Queue<DanceCard> curQ = this.playerQs[playerI];
+        curQ.Enqueue(cardsToChoose[cardI]);
+
+        if (curQ.Count > maxMoves)
+        {
+            curQ.Dequeue();
+        }
+    }
+
     // Use this for initialization
     void Start () {
         gameState = GameState.GENERATE_CARDS;
@@ -25,6 +44,12 @@ public class GameMaster : MonoBehaviour {
         accumulatedTimeSinceUpdate = 0;
         rnd = new Random();
         stage = GameObject.Find("Stage");
+
+        playerQs = new Queue<DanceCard>[playerC];
+        for (int i = 0; i < playerC; i++)
+        {
+            playerQs[i] = new Queue<DanceCard>();
+        }
     }
 	
 	// Update is called once per frame
