@@ -12,6 +12,10 @@ public class GameMaster : MonoBehaviour {
 
     public Text uiText;
 
+    public CardController[] playerOnePickedCardIndicator = new CardController[2];
+    public CardController[] playerTwoPickedCardIndicator = new CardController[2];
+
+
     GameState gameState;
     float accumulatedTimeSinceUpdate;
     float TICK_TIME = 0.8f; // seconds
@@ -46,6 +50,34 @@ public class GameMaster : MonoBehaviour {
         }
 
         curQ.Enqueue(cardsToChoose[cardI]);
+        
+        if (playerI == 0)
+        {
+            if (curQ.Count == 1)
+            {
+                playerOnePickedCardIndicator[0].setPicked(true);
+                playerOnePickedCardIndicator[1].setPicked(false);
+            }
+            else if (curQ.Count == 2)
+            {
+                playerOnePickedCardIndicator[0].setPicked(true);
+                playerOnePickedCardIndicator[1].setPicked(true);
+            }
+        }
+        else
+        {
+            if (curQ.Count == 1)
+            {
+                playerTwoPickedCardIndicator[0].setPicked(true);
+                playerTwoPickedCardIndicator[1].setPicked(false);
+            }
+            else if (curQ.Count == 2)
+            {
+                playerTwoPickedCardIndicator[0].setPicked(true);
+                playerTwoPickedCardIndicator[1].setPicked(true);
+            }
+        }
+        
 
         if (curQ.Count > maxMoves)
         {
@@ -147,6 +179,10 @@ public class GameMaster : MonoBehaviour {
                     gameState = GameState.PICKING_CARD;
                     curTicks = SELECT_TICKS;
                     uiText.text = this.curTicks.ToString();
+                    playerOnePickedCardIndicator[0].setPicked(false);
+                    playerOnePickedCardIndicator[1].setPicked(false);
+                    playerTwoPickedCardIndicator[0].setPicked(false);
+                    playerTwoPickedCardIndicator[1].setPicked(false);
                     break;
                 case GameState.PICKING_CARD:
                     this.curTicks -= 1;
