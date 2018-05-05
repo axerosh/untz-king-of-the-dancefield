@@ -77,11 +77,47 @@ public class GameMaster : MonoBehaviour {
                 playerTwoPickedCardIndicator[1].setPicked(true);
             }
         }
-        
+
+        this.updateSelected();
 
         if (curQ.Count > maxMoves)
         {
             curQ.Dequeue();   
+        }
+    }
+
+    void updateSelected()
+    {
+        if (this.playerQs[0].Count == 1)
+        {
+            playerOnePickedCardIndicator[0].setPicked(true);
+            playerOnePickedCardIndicator[1].setPicked(false);
+        }
+        else if (this.playerQs[0].Count == 2)
+        {
+            playerOnePickedCardIndicator[0].setPicked(true);
+            playerOnePickedCardIndicator[1].setPicked(true);
+        }
+        else
+        {
+            playerOnePickedCardIndicator[0].setPicked(false);
+            playerOnePickedCardIndicator[1].setPicked(false);
+        }
+        
+        if (this.playerQs[1].Count == 1)
+        {
+            playerTwoPickedCardIndicator[0].setPicked(true);
+            playerTwoPickedCardIndicator[1].setPicked(false);
+        }
+        else if (this.playerQs[1].Count == 2)
+        {
+            playerTwoPickedCardIndicator[0].setPicked(true);
+            playerTwoPickedCardIndicator[1].setPicked(true);
+        }
+        else
+        {
+            playerTwoPickedCardIndicator[0].setPicked(false);
+            playerTwoPickedCardIndicator[1].setPicked(false);
         }
     }
 
@@ -104,7 +140,7 @@ public class GameMaster : MonoBehaviour {
     {
         DanceCard[] cards = new DanceCard[this.players.Length];
 
-        // Move
+        // Move & pop cards
         for (int i = 0; i < this.players.Length; ++i)
         {
             if (this.playerQs[i].Count > 0)
@@ -118,6 +154,8 @@ public class GameMaster : MonoBehaviour {
                 players[i].setAnimation(cards[i].anim);
             }
         }
+
+        this.updateSelected();
 
         // Handle collisions
         for (int i = 0; i < this.players.Length; ++i)
