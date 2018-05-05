@@ -1,21 +1,25 @@
 ﻿using Directions;
 using PointClass;
 
-public interface DanceCard
+namespace DanceCards
 {
-    Direction direction
+    public interface DanceCard
     {
-        get;
-    }
+        Direction direction
+        {
+            get;
+        }
 
-    //Relative points from the player to apply damage to 
-    Point[] damagePoints
-    {
-        get;
-    }
+        //Relative points from the player to apply damage to 
+        Point[] damagePoints
+        {
+            get;
+        }
 
-    float damage
-    {
-        get;
+        float damage
+        {
+            get;
+        }
     }
 }
+    
