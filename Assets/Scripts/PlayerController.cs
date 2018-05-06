@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float MOVE_SPEED = 3;
+    public float FALL_SPEED = 5;
 
     public GameMaster gm;
     public StageScript stage;
@@ -18,6 +19,9 @@ public class PlayerController : MonoBehaviour {
     public int y = 0;
 
     public int playerI = 0;
+
+    private bool shouldDie = false;
+    private bool falling = false;
 
     private bool moving = false;
     private Vector3 destination;
@@ -53,15 +57,21 @@ public class PlayerController : MonoBehaviour {
 
         if(stage.insideFloor(newX, newY))
         {
-            this.moving = true;
             this.destination = stage.getWorldCoords(newX, newY);
+            this.moving = true;
 
             this.x = newX;
             this.y = newY;
         }
         else
         {
-            this.die();
+            float deltaMoveX = deltaX * this.stage.getTileDist();
+            float deltaMoveY = deltaY * this.stage.getTileDist();
+
+            this.destination = this.transform.position + new Vector3(deltaMoveX, 0 ,-deltaMoveY);
+            this.moving = true;
+
+            this.shouldDie = true;
         }
     }
     
@@ -78,12 +88,15 @@ public class PlayerController : MonoBehaviour {
 
     void die()
     {
-        Debug.Log("Dead");
+        this.falling = true;
     }
 
     void selectCard(int i)
     {
-        gm.selectCard(i, playerI);
+        if (!(falling || shouldDie))
+        {
+            gm.selectCard(i, playerI);
+        }
     }
 
 	// Update is called once per frame
@@ -96,7 +109,17 @@ public class PlayerController : MonoBehaviour {
             if(this.transform.position == this.destination)
             {
                 this.moving = false;
+
+                if (this.shouldDie)
+                {
+                    this.die();
+                }
             }
+        }
+
+        if (this.falling)
+        {
+            this.transform.Translate(Vector3.down * Time.deltaTime * this.FALL_SPEED);
         }
 
         for(int i = 0; i < inputNames.Length; ++i)
