@@ -12,7 +12,7 @@ public class GameMaster : MonoBehaviour {
     public PlayerController[] players = new PlayerController[1];
     enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END, GENERATE_CARDS };
 
-    public Text uiText;
+    public TextMesh countdownLabel;
 
     public CardController[] playerOnePickedCardIndicator = new CardController[2];
     public CardController[] playerTwoPickedCardIndicator = new CardController[2];
@@ -188,7 +188,7 @@ public class GameMaster : MonoBehaviour {
                     updateCardSprites();
                     gameState = GameState.PICKING_CARD;
                     curTicks = SELECT_TICKS;
-                    uiText.text = this.curTicks.ToString();
+                    countdownLabel.text = this.curTicks.ToString();
                     playerOnePickedCardIndicator[0].setPicked(false);
                     playerOnePickedCardIndicator[1].setPicked(false);
                     playerTwoPickedCardIndicator[0].setPicked(false);
@@ -196,13 +196,13 @@ public class GameMaster : MonoBehaviour {
                     break;
                 case GameState.PICKING_CARD:
                     this.curTicks -= 1;
-                    uiText.text = this.curTicks.ToString();
+                    countdownLabel.text = this.curTicks.ToString();
 
                     if (this.curTicks <= 0)
                     {
                         this.gameState = GameState.ACTING_OUT_MOVES;
 
-                        this.uiText.text = "";
+                        countdownLabel.text = "";
                         this.curTicks = 1;
                         this.curMoves = maxMoves + 1;
 

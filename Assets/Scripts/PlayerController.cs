@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour {
         this.health = startHealth;
 
         this.spriteRend = this.playerAnim.gameObject.GetComponent<SpriteRenderer>();
-        //this.setRed(true);
     }
 
     public void setAnimation(DanceAnim anim)
