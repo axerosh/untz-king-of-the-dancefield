@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public StageScript stage;
 
     public Animator playerAnim;
+    public DamageSoundController damageSound;
 
     public string[] inputNames;
     public int startHealth = 10;
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour {
     private float timeSinceBlink = 0;
     public float BLINK_TIME = 0.1f;
     private SpriteRenderer spriteRend;
+
+
 
     // Use this for initialization
     void Start () {
@@ -77,8 +80,9 @@ public class PlayerController : MonoBehaviour {
     public void damage(int amount)
     {
         this.health -= amount;
+        damageSound.playNew();
 
-        if(this.health <= 0)
+        if (this.health <= 0)
         {
             this.health = 0;
             this.die();
