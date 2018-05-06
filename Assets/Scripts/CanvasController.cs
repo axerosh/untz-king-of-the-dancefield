@@ -10,6 +10,13 @@ public class CanvasController : MonoBehaviour {
     public PlayerController player1Controller;
     public PlayerController player2Controller;
 
+    public Text[] playerWinTexts = new Text[2];
+
+    public void showWinText(int playerId)
+    {
+        this.playerWinTexts[playerId].enabled = true;
+    }
+
     // Use this for initialization
     void Start () {
 		

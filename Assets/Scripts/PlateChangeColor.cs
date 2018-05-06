@@ -9,11 +9,16 @@ public class PlateChangeColor : MonoBehaviour
 
     private Material material;
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
         //Fetch the Material from the Renderer of the GameObject
         material = GetComponent<Renderer>().material;
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame

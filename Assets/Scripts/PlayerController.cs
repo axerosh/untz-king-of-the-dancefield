@@ -89,6 +89,9 @@ public class PlayerController : MonoBehaviour {
     void die()
     {
         this.falling = true;
+
+        // Only works for 2 players
+        this.gm.win((this.playerI + 1) % 2);
     }
 
     void selectCard(int i)
