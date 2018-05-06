@@ -228,12 +228,16 @@ public class GameMaster : MonoBehaviour {
                                 {
                                     if (this.lastCards[i] != null)
                                     {
-                                        players[i].move(-this.lastCards[i].movePoint.x, -this.lastCards[i].movePoint.y);
+                                        int backDeltaX = -this.lastCards[i].movePoint.x / Mathf.Max(Mathf.Abs(lastCards[i].movePoint.x), 1);
+                                        int backDeltaY = -this.lastCards[i].movePoint.y / Mathf.Max(Mathf.Abs(lastCards[i].movePoint.y), 1);
+                                        players[i].move(backDeltaX, backDeltaY);
                                     }
 
                                     if (this.lastCards[j] != null)
                                     {
-                                        players[j].move(-this.lastCards[j].movePoint.x, -this.lastCards[j].movePoint.y);
+                                        int backDeltaX = -this.lastCards[j].movePoint.x / Mathf.Max(Mathf.Abs(lastCards[j].movePoint.x), 1);
+                                        int backDeltaY = -this.lastCards[j].movePoint.y / Mathf.Max(Mathf.Abs(lastCards[j].movePoint.y), 1);
+                                        players[j].move(backDeltaX, backDeltaY);
                                     }
                                 }
                             }
