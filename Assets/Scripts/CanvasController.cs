@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour {
  
-    public Text[] playerWinTexts = new Text[2];
+    public MeshRenderer[] playerWinTexts = new MeshRenderer[2];
 
     public void showWinText(int playerId)
     {
