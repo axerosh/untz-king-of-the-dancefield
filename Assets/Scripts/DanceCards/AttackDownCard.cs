@@ -14,7 +14,7 @@
         {
             get
             {
-                return DanceAnim.IDLE;
+                return DanceAnim.ATTACK_DOWN;
             }
         }
 

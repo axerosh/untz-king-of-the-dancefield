@@ -315,29 +315,37 @@ public class GameMaster : MonoBehaviour {
         {
             float number = Random.Range(0, 101);
 
-            if(number < 20)
+            if(number < 10)
             {
                 cardsToChoose[i] = new MoveLeftCard();
             }
-            else if(number < 40)
+            else if(number < 20)
             {
                 cardsToChoose[i] = new MoveRightCard();
             }
-            else if(number < 50)
+            else if(number < 30)
             {
                 cardsToChoose[i] = new MoveUpCard();
             }
-            else if(number < 60)
+            else if(number < 40)
             {
                 cardsToChoose[i] = new MoveDownCard();
             }
-            else if (number < 70)
+            else if (number < 50)
             {
                 cardsToChoose[i] = new AttackLeftCard();
             }
-            else if (number < 80)
+            else if (number < 60)
             {
                 cardsToChoose[i] = new AttackRightCard();
+            }
+            else if (number < 70)
+            {
+                cardsToChoose[i] = new AttackUpCard();
+            }
+            else if (number < 80)
+            {
+                cardsToChoose[i] = new AttackDownCard();
             }
             else if (number < 85)
             {
