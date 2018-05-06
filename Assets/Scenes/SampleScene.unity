@@ -265,6 +265,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 949602616}
+    - target: {fileID: 114504942688492068, guid: 9a77a85dbcd131544b21915e7b5561ac,
+        type: 2}
+      propertyPath: MOVE_SPEED
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a77a85dbcd131544b21915e7b5561ac, type: 2}
   m_IsPrefabParent: 0
@@ -394,6 +399,11 @@ Prefab:
     - target: {fileID: 1517390753516502, guid: 9a77a85dbcd131544b21915e7b5561ac, type: 2}
       propertyPath: m_Name
       value: Player 1 Health Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504942688492068, guid: 9a77a85dbcd131544b21915e7b5561ac,
+        type: 2}
+      propertyPath: MOVE_SPEED
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a77a85dbcd131544b21915e7b5561ac, type: 2}
