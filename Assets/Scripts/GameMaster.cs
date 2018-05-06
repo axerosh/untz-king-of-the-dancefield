@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
 
     public int SELECT_TICKS = 10;
+    public float VICTORY_TIME = 5;
 
     public PlayerController[] players = new PlayerController[1];
     enum GameState { STARTING_GAME, PICKING_CARD, ACTING_OUT_MOVES, GAME_END, GENERATE_CARDS };
@@ -37,6 +39,8 @@ public class GameMaster : MonoBehaviour {
 
     private DanceCard[] lastCards;
 
+    public CanvasController canvasCont;
+
     public void selectCard(int cardI, int playerI)
     {
         if(this.gameState != GameState.PICKING_CARD)
@@ -45,7 +49,7 @@ public class GameMaster : MonoBehaviour {
         }
 
         Queue<DanceCard> curQ = this.playerQs[playerI];
-        
+
         // Can not select same card two times
         if (curQ.Contains(cardsToChoose[cardI])
             &&
@@ -285,6 +289,20 @@ public class GameMaster : MonoBehaviour {
                 colorChanger.ChangeToRandomColor();
             }
         }
+    }
+
+    public void win(int playerId)
+    {
+        this.canvasCont.showWinText(playerId);
+        this.players[playerId].setAnimation(DanceAnim.SPIN);
+
+        this.gameState = GameState.GAME_END;
+        Invoke("restartGame", this.VICTORY_TIME);
+    }
+
+    private void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void generateNewCards()
