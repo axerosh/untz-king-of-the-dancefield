@@ -3351,7 +3351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd5032a9b957c046a2efa9d032ce66f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SELECT_TICKS: 10
+  SELECT_TICKS: 15
   VICTORY_TIME: 5
   players:
   - {fileID: 1657841823}

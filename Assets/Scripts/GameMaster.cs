@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
 
-    public int SELECT_TICKS = 10;
+    public int SELECT_TICKS = 15;
     public float VICTORY_TIME = 5;
 
     public PlayerController[] players = new PlayerController[1];
@@ -20,7 +20,7 @@ public class GameMaster : MonoBehaviour {
 
     GameState gameState;
     float accumulatedTimeSinceUpdate;
-    float TICK_TIME = 0.8f; // seconds
+    float TICK_TIME = 0.4f; // seconds
     DanceCard [] cardsToChoose = new DanceCard [6];
     public CardController[] cardControllers = new CardController[6];
     Random rnd;
