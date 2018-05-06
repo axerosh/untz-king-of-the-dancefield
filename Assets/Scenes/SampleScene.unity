@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -573,6 +573,7 @@ MonoBehaviour:
   x: 6
   y: 1
   playerI: 1
+  BLINK_TIME: 0.25
 --- !u!4 &949602617
 Transform:
   m_ObjectHideFlags: 0
@@ -1620,6 +1621,7 @@ MonoBehaviour:
   x: 1
   y: 1
   playerI: 0
+  BLINK_TIME: 0.25
 --- !u!4 &1657841824
 Transform:
   m_ObjectHideFlags: 0
@@ -1806,7 +1808,7 @@ Transform:
   m_GameObject: {fileID: 2012784809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: -0.06999999}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
   m_Children: []
   m_Father: {fileID: 949602617}
   m_RootOrder: 0
@@ -1820,7 +1822,7 @@ Animator:
   m_GameObject: {fileID: 2012784809}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 848c41461e6a9334b95c8f10fa8eb8f2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 216c42984dfc237409677b625992520d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1864,7 +1866,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eef66d5936736ec439e5baadd410a20c, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 61e33a06ac72f1549b77d606520b3a1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
