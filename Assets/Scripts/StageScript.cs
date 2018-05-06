@@ -6,10 +6,20 @@ public class StageScript : MonoBehaviour {
 
     public GameObject[] rows = new GameObject[4];
 
+    private float tileDist;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
+        Transform pos1 = rows[0].GetComponent<RowScript>().plates[0].transform;
+        Transform pos2 = rows[0].GetComponent<RowScript>().plates[1].transform;
+
+        this.tileDist = Vector3.Distance(pos1.position, pos2.position);
+    }
+
+    public float getTileDist()
+    {
+        return tileDist;
+    }
 
     public bool insideFloor(int x, int y)
     {
