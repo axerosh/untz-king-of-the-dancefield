@@ -211,12 +211,6 @@ public class GameMaster : MonoBehaviour {
                     // Sort of inbetween two moves
                     if (this.curTicks == (ticksPerMove-halfMoveTicks))
                     {
-                        // Reset everybodys color
-                        for(int i = 0; i < this.players.Length; ++i)
-                        {
-                            this.players[i].setRed(false);
-                        }
-
                         // Check collisions
                         // Handle collisions
                         for (int i = 0; i < this.players.Length; ++i)
@@ -242,6 +236,12 @@ public class GameMaster : MonoBehaviour {
                     if (this.curTicks <= 0)
                     {
                         this.curMoves -= 1;
+
+                        // Reset everybodys color
+                        for (int i = 0; i < this.players.Length; ++i)
+                        {
+                            this.players[i].setRed(false);
+                        }
 
                         if (this.curMoves <= 0)
                         {

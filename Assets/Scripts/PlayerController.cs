@@ -22,10 +22,20 @@ public class PlayerController : MonoBehaviour {
     private bool moving = false;
     private Vector3 destination;
 
+    //Variables for blinking red
+    private bool blinkRed = false;
+    private bool isRed = false;
+    private float timeSinceBlink = 0;
+    public float BLINK_TIME = 0.1f;
+    private SpriteRenderer spriteRend;
+
     // Use this for initialization
     void Start () {
         this.health = startHealth;
-	}
+
+        this.spriteRend = this.playerAnim.gameObject.GetComponent<SpriteRenderer>();
+        //this.setRed(true);
+    }
 
     public void setAnimation(DanceAnim anim)
     {
@@ -96,19 +106,44 @@ public class PlayerController : MonoBehaviour {
                 this.selectCard(i);
             }
         }
+
+        // Blinking
+        if (blinkRed)
+        {
+            this.timeSinceBlink += Time.deltaTime;
+
+            if (this.timeSinceBlink >= this.BLINK_TIME)
+            {
+                this.timeSinceBlink -= this.BLINK_TIME;
+
+                if (this.isRed)
+                {
+                    this.spriteRend.color = Color.white;
+                    this.isRed = false;
+                }
+                else
+                {
+                    this.spriteRend.color = Color.red;
+                    this.isRed = true;
+                }
+            }
+        }
     }
     
     public void setRed(bool red)
     {
-        SpriteRenderer rend =  this.playerAnim.gameObject.GetComponent<SpriteRenderer>();
+        this.blinkRed = red;
 
         if (red)
         {
-            rend.color = Color.red;
+            this.timeSinceBlink = 0;
+            this.spriteRend.color = Color.red;
+            this.isRed = true;
         }
         else
         {
-            rend.color = Color.white;
+            this.spriteRend.color = Color.white;
+            this.isRed = false;
         }
     }
 }
