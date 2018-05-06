@@ -14,7 +14,7 @@ public class GameMaster : MonoBehaviour {
 
     public CardController[] playerOnePickedCardIndicator = new CardController[2];
     public CardController[] playerTwoPickedCardIndicator = new CardController[2];
-    public JukeboxController jukebox = new JukeboxController();
+    public JukeboxController jukebox;
 
     GameState gameState;
     float accumulatedTimeSinceUpdate;
@@ -25,6 +25,8 @@ public class GameMaster : MonoBehaviour {
 
     public int ticksPerMove = 2;
     public int halfMoveTicks = 1;
+
+    public GameObject keyboardLabels;
 
     private int curMoves;
 
@@ -111,6 +113,7 @@ public class GameMaster : MonoBehaviour {
         }
 
         updatePlateColors();
+        keyboardLabels.SetActive(false);
     }
 
     void executeCard()
@@ -335,6 +338,7 @@ public class GameMaster : MonoBehaviour {
         {
             cardControllers[i].setPicked(false);
         }
+        keyboardLabels.SetActive(false);
     }
 
     void updateCardSprites()
@@ -343,5 +347,7 @@ public class GameMaster : MonoBehaviour {
         {
             cardControllers[i].setDanceCard(cardsToChoose[i]);
         }
+
+        keyboardLabels.SetActive(true);
     }
 }
